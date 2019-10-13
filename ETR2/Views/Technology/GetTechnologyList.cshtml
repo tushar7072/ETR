@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Technology>
+
+@{
+    Layout = "_Layout";
+}
+<div class="card m-lg-auto">
+    <div class="card-header">
+        <div class=text-center>
+            <h3>Technology List</h3>
+        </div>
+    </div>
+
+    @{ foreach (var tech in @Model)
+        {
+        <div class="text-center">
+            @*href="/Technology/GetTechnologyDetails/@tech.TechID"*@
+            <a class="nav-link" asp-controller="Technology" asp-action="GetTechnologyDetails" asp-route-TechID=@tech.TechID>
+                @tech.TechID
+
+                @tech.TechnologyName
+
+                @tech.TechnologyDescription
+            </a>
+        </div>
+
+
+        }
+    }
+    <div class="card-footer">
+        <a href="#" class="btn alert-info m-1">Ok</a>
+        <a href="#" class="btn alert-danger m-1">Cancel</a>
+    </div>
+</div>
+

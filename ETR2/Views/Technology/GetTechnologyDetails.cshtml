@@ -1,0 +1,22 @@
+﻿@model Technology
+@{
+    Layout = "_Layout";
+}
+
+<div class="card m-3">
+    <div class="card-header">
+        <div class="row justify-content-center">
+            <h3>Technology Details</h3>
+        </div>
+    </div>
+    <div class="card-body text-center">
+        <div>TSL ID : @Model.TechID</div>
+        <div>Technology Name : @Model.TechnologyName</div>
+        <div>Technology Description : @Model.TechnologyDescription</div>
+    </div>
+    <div class="card-footer">
+        <a href="~/" class="btn btn-outline-success">OK</a>
+        <a href="#" class="btn btn-danger">CANCEL</a>
+    </div>
+</div>
+
