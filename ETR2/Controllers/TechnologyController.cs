@@ -16,7 +16,7 @@ namespace ETR2.Controllers
         {
             _techRepository = TechRepository;
         }
-        
+
         public ViewResult Index()
         {
             //return _techRepository.GetTechnology(1).TechnologyName;
@@ -28,14 +28,37 @@ namespace ETR2.Controllers
         {
             return View(_techRepository.GetAllTechnologies());
         }
-        
+
         [Route("[action]/{TechID}")]
         public ViewResult GetTechnologyDetails(int TechID)
         {
             Technology TechnologyData = _techRepository.GetAllTechnologies().FirstOrDefault(t => t.TechID == TechID);
 
             return View(TechnologyData);
-            
+
         }
+
+        [Route("[action]")]
+        [HttpGet]
+        public ViewResult CreateTechnology()
+        {
+
+            return View();
+        }
+
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult CreateTechnology(Technology NewTech)
+        {
+            if (ModelState.IsValid)
+            {
+                NewTech = _techRepository.AddTechnology(NewTech);
+                // return RedirectToAction("GetTechnologyDetails", new { TechID = NewTech.TechID });
+                return View();
+            }
+            else
+                return View();
+        }
+
     }
 }
