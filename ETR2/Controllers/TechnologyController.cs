@@ -38,11 +38,12 @@ namespace ETR2.Controllers
 
         }
 
+
         [Route("[action]")]
         [HttpGet]
         public ViewResult CreateTechnology()
         {
-
+            //Need more details
             return View();
         }
 
