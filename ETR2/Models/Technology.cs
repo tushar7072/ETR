@@ -17,6 +17,6 @@ namespace ETR2.Models
         public string TechnologyDescription { get; set; }
         [Required]
         public LandingZones? LandingZone { get; set; }
-
+        public string test;
     }
 }
